@@ -23,14 +23,25 @@ class App extends Component {
     const {information} = this.state;
     this.setState({
       information: information.concat({id: this.id++, ...data})
-    })
+    });
   }
 
   handleRemove = (id) => {
     const {information} = this.state;
     this.setState({
       information: information.filter(info => info.id != id)
-    })
+    });
+  }
+
+  handleUpdate = (id, data) => {
+    const {information} = this.state;
+    this.setState({
+      information: information.map(
+        info => info.id === id 
+        ? {...info, ...data} // 새 객체를 만들어 기존의 값과 전달받은 데이터를 덮어쓴다.
+        : info // 기존 값 유지
+      )
+    });
   }
 
   render() {
@@ -38,7 +49,7 @@ class App extends Component {
     return (
       <div>
         <PhoneForm onCreate={this.handleCreate} />
-        <PhoneInfoList data={this.state.information} onRemove={this.handleRemove} />
+        <PhoneInfoList data={this.state.information} onRemove={this.handleRemove} onUpdate={this.handleUpdate}/>
       </div>
     );
   }
