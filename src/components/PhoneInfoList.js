@@ -9,7 +9,8 @@ class PhoneInfoList extends Component {
     render(){
         const {data} = this.props;
         const list = data.map(
-            info => (<PhoneInfo key={info.id} info={info} />)
+            // 배열을 렌더링할때는 고유값을 key로 사용해야함.
+            info => (<PhoneInfo key={info.id} info={info} />) 
         );
 
         return (

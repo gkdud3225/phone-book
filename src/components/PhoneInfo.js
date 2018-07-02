@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class PhoneInfo extends Component {
     static defaultProps = {
-        info: {
+        info: { // info값이 undefined일때 기본값 설정.
             name: '이름',
             phone: '010-0000-0000',
             id: 0
