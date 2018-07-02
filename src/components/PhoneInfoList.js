@@ -8,7 +8,13 @@ class PhoneInfoList extends Component {
         onUpdate: () => console.warn('onUpdate not defined')
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        // 다음 받아올 data가 현재 data랑 다른 배열일 때 true로 설정.
+        return nextProps.data !== this.props.data;
+    }
+
     render(){
+        console.log('render PhoneInfoList');
         const {data, onRemove, onUpdate} = this.props;
         const list = data.map(
             // 배열을 렌더링할때는 고유값을 key로 사용해야함.
