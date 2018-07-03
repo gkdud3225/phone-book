@@ -36,7 +36,7 @@ class App extends Component {
   handleRemove = (id) => {
     const {information} = this.state;
     this.setState({
-      information: information.filter(info => info.id != id)
+      information: information.filter(info => info.id !== id)
     });
   }
 
