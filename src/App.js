@@ -31,6 +31,7 @@ class App extends Component {
     this.setState({
       information: information.concat({id: this.id++, ...data})
     });
+    // console.log(data);
   }
 
   handleRemove = (id) => {
@@ -57,6 +58,7 @@ class App extends Component {
     return (
       <div>
         <PhoneForm onCreate={this.handleCreate} />
+        {JSON.stringify(information)}
         <p>
           <input placeholder="검색할 이름을 입력하세요." onChange={this.handleChange} value={keyword} />
         </p>

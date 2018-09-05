@@ -17,7 +17,7 @@ class PhoneInfoList extends Component {
         console.log('render PhoneInfoList');
         const {data, onRemove, onUpdate} = this.props;
         const list = data.map(
-            // 배열을 렌더링할때는 고유값을 key로 사용해야함.
+            // 배열을 렌더링할때는 고유값을 key로 사용해야함. 배열의 인덱스 값을 key로 사용하는 것은 좋지 않음.
             info => (<PhoneInfo key={info.id} info={info} onRemove={onRemove} onUpdate={onUpdate}/>) 
         );
 
